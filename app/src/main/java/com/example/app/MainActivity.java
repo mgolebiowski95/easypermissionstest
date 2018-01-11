@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             if (!waiting) {
                 boolean b = shouldShowRequestPermissionRationale(this, REQUESTED_PERMISSIONS_ON_START);
                 if (b) {
-                    if (!isShowed(getSupportFragmentManager(), RationaleDialogFragmentCompat.TAG)) { // TODO too need check AppSettingDialog is shown
+                    if (!isShowing(getSupportFragmentManager(), RationaleDialogFragmentCompat.TAG)) { // TODO too need check AppSettingDialog is showing
                         RationaleDialogFragmentCompat rationaleDialogFragmentCompat = RationaleDialogFragmentCompat.newInstance("To function properly, App needs your permission. Allow permission for App",
                                                                                                                                 "ok",
                                                                                                                                 "cancel",
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         return b;
     }
 
-    private boolean isShowed(FragmentManager fragmentManager, String tag) {
+    private boolean isShowing(FragmentManager fragmentManager, String tag) {
         Fragment fragment = fragmentManager.findFragmentByTag(tag);
         return fragment != null && !fragment.isDetached() && fragment.isVisible();
 
